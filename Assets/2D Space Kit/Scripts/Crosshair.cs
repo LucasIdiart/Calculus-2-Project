@@ -11,10 +11,9 @@ public class Crosshair : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-		wanted_position = CustomPointer.pointerPosition;
-		wanted_position.z = transform.position.z;
-		transform.position =  wanted_position;
-	
+    	wanted_position = Camera.main.ScreenToWorldPoint(CustomPointer.pointerPosition);
+    	wanted_position.z = 0; // Manténlo en el mismo plano que el juego
+    	transform.position = wanted_position;
 	}
+
 }
